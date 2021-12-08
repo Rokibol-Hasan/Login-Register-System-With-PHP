@@ -1,75 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+ <?php
+    include "inc/header.php";
+    include "lib/user.php";
+    $user = new User();
+    ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Title</title>
-</head>
+ <section class="userlist">
+     <div class="container">
+         <div class="row">
+             <div class="col-md-12">
 
-<body>
-    <section class="header-section">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">Login Register System With PHP </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                 <div class="panel panel-default">
+                     <div class="panel-heading">
+                         <ul class="">
+                             <li>
+                                 <h2 class="">User List</h2>
+                             </li>
+                             <li><span class=""><strong>Welcome</strong>Rakib</span></li>
+                         </ul>
+                     </div>
+                     <div class="panel-body">
+                         <table class="table table-striped">
+                             <th width="20%">Serial</th>
+                             <th width="20%">Name</th>
+                             <th width="20%">Username</th>
+                             <th width="20%">Email</th>
+                             <th width="20%">Action</th>
+                             <tr>
+                                 <td>01</td>
+                                 <td>Rakib</td>
+                                 <td>rjrakib</td>
+                                 <td>rakib@gmail.com</td>
+                                 <td>
+                                     <a href="profile.php?id=1">View</a>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td>02</td>
+                                 <td>Sakib</td>
+                                 <td>sakib</td>
+                                 <td>sakib@gmail.com</td>
+                                 <td>
+                                     <a href="profile.php?id=2">View</a>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td>03</td>
+                                 <td>Farin</td>
+                                 <td>farin</td>
+                                 <td>farin@gmail.com</td>
+                                 <td>
+                                     <a href="profile.php?id=3">View</a>
+                                 </td>
+                             </tr>
+                         </table>
+                     </div>
 
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="profile.php">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-
-
-body text
-
-
-
-    <section class="footer bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="left">
-                        <h6><a href="www.rokibol.com"> Visit My Website </a></h6>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="right">
-                        <h6><a href="www.facebook.com/rokibol.hasancse"> Like us on facebook </a></h6>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+ <?php
+    include "inc/footer.php";
+    ?>

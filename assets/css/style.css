@@ -1,22 +1,40 @@
-.navbar{
-    padding: 40px 0px;
+.navbar {
+  padding: 40px 0px;
+  background-color: lightgray;
+  margin-bottom: 40px;
 }
-
-.footer .left h6{
-    text-align: left;
-    padding: 20px 0px;
-
-}
-.footer .left a{
-    text-decoration: none;
-    color: black;
-}
-.footer .right h6{
-    text-align: right;
-    padding: 20px 0px;
+.userlist{
 
 }
-.footer .right a{
-    text-decoration: none;
-    color: black;
+.userlist ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
+.panel-heading{
+    height: 60px;
+}
+.panel-heading ul li h2{
+    vertical-align: middle;
+}
+.panel-heading ul li span{
+    vertical-align: middle;
+}
+.footer{
+  background-color: lightgray;
+  padding: 20px 0px;
+  margin-top: 40px;
+}
+.footer a{
+  text-decoration: none;
+  color: black;
+
+}
+.footer .left-footer{
+  text-align: left;
+}
+.footer .right-footer{
+  text-align: right;
+}
+.
+
