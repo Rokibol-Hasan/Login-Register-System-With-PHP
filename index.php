@@ -43,15 +43,27 @@
     </section>
 
 
-
+body text
 
 
 
     <section class="footer bg-light">
-        <div class="well">
-            <h6><a href="www.rokibol.com"> Visit My Website </a></h6>
-        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="left">
+                        <h6><a href="www.rokibol.com"> Visit My Website </a></h6>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="right">
+                        <h6><a href="www.facebook.com/rokibol.hasancse"> Like us on facebook </a></h6>
+                    </div>
+                </div>
+            </div>
 
+
+        </div>
     </section>
 
 

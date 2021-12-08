@@ -1,9 +1,22 @@
-.footer .well h6{
-    text-align: center;
+.navbar{
+    padding: 40px 0px;
+}
+
+.footer .left h6{
+    text-align: left;
     padding: 20px 0px;
 
 }
-.footer .well a{
+.footer .left a{
+    text-decoration: none;
+    color: black;
+}
+.footer .right h6{
+    text-align: right;
+    padding: 20px 0px;
+
+}
+.footer .right a{
     text-decoration: none;
     color: black;
 }
