@@ -44,8 +44,6 @@ class User
         $query = $this->db->pdo->prepare($sql);
         $query->bindValue(':email', $email);
         $query->execute();
-
-        
         if ($query->rowCount() > 0) {
             return true;
         } else {
