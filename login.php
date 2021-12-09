@@ -1,5 +1,15 @@
  <?php
     include "inc/header.php";
+    include "lib/User.php";
+    ?>
+ <?php
+
+    $user = new User();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+        $usrLogin = $user->userLogin($_POST);
+    }
+
+
     ?>
 
  <section class="userlist">
@@ -17,14 +27,19 @@
                      </div>
                      <div class="panel-body">
                          <div style="max-width: 600px; margin:0 auto;">
+                             <?php
+                                if (isset($usrLogin)) {
+                                    echo $usrLogin;
+                                }
+                                ?>
                              <form action="" method="POST">
                                  <div class="form-group">
                                      <label for="email">Email Address:</label>
-                                     <input type="text" id="email" name="email" class="form-control" required="">
+                                     <input type="text" id="email" name="email" class="form-control">
                                  </div>
                                  <div class="form-group">
                                      <label for="email">Password:</label>
-                                     <input type="password" id="password" name="password" class="form-control" required="">
+                                     <input type="password" id="password" name="password" class="form-control">
                                  </div>
                                  <button type="submit" name="login" class="btn btn-success">Login</button>
 

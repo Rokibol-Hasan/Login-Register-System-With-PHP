@@ -4,6 +4,14 @@
     $user = new User();
     ?>
 
+ <?php
+    $loginmsg = Session::get("loginmsg");
+    if (isset($loginmsg)) {
+        echo $loginmsg;
+    }
+    Session::set("loginmsg", NULL);
+    ?>
+
  <section class="userlist">
      <div class="container">
          <div class="row">
@@ -15,7 +23,12 @@
                              <li>
                                  <h2 class="">User List</h2>
                              </li>
-                             <li><span class=""><strong>Welcome</strong>Rakib</span></li>
+                             <li><span class=""><strong>Welcome</strong> <br/> <?php
+                                                                        $name = Session::get("name");
+                                                                        if (isset($name)) {
+                                                                            echo $name;
+                                                                        }
+                                                                        ?></span></li>
                          </ul>
                      </div>
                      <div class="panel-body">
@@ -60,7 +73,7 @@
          </div>
      </div>
  </section>
- 
+
  <?php
     include "inc/footer.php";
     ?>

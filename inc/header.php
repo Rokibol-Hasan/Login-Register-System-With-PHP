@@ -1,6 +1,11 @@
+<?php
+$filepath = realpath(dirname(__FILE__));
+include_once $filepath.'/../lib/Session.php';
+Session::init();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
