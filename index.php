@@ -23,12 +23,12 @@
                              <li>
                                  <h2 class="">User List</h2>
                              </li>
-                             <li><span class=""><strong>Welcome</strong> <br/> <?php
-                                                                        $name = Session::get("name");
-                                                                        if (isset($name)) {
-                                                                            echo $name;
-                                                                        }
-                                                                        ?></span></li>
+                             <li><span class=""><strong>Welcome</strong> <br /> <?php
+                                                                                $name = Session::get("name");
+                                                                                if (isset($name)) {
+                                                                                    echo $name;
+                                                                                }
+                                                                                ?></span></li>
                          </ul>
                      </div>
                      <div class="panel-body">
