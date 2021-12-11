@@ -190,7 +190,7 @@ class User
         }
         $password = md5($new_pass);
         $sql        = "UPDATE tbl_user SET 
-        password    = :password,
+        password    = :password
         WHERE id    = :id ";
         $query = $this->db->pdo->prepare($sql);
         $query->bindValue(':password', $password);
