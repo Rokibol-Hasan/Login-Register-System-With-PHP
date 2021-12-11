@@ -1,11 +1,12 @@
 <?php
 $filepath = realpath(dirname(__FILE__));
-include_once $filepath.'/../lib/Session.php';
+include_once $filepath . '/../lib/Session.php';
 Session::init();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,11 @@ Session::init();
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Login|Register</title>
 </head>
+<?php
+if (isset($_GET['action']) && $_GET['action'] == "logout") {
+    Session::destroy();
+}
+?>
 
 <body>
     <section class="header-section">
@@ -28,22 +34,37 @@ Session::init();
 
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="profile.php">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
+                        <?php
+                        $id = Session::get("id");
+                        $userlogin = Session::get("login");
+                        if ($userlogin == true) { ?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="?action=index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="profile.php?id=<?php echo $id ?>">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?action=logout">Logout</a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="?action=index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="register.php">Register</a>
+                            </li>
+
+                        <?php } ?>
+
+
+
                     </ul>
                 </div>
             </div>
         </nav>
     </section>
-

@@ -1,6 +1,7 @@
  <?php
     include "inc/header.php";
     include "lib/User.php";
+    Session::checkLogin();
     ?>
  <?php
 
@@ -17,15 +18,15 @@
          <div class="row">
              <div class="col-md-12">
 
-                 <div class="panel panel-default">
-                     <div class="panel-heading">
+                 <div class="card card-default">
+                     <div class="card-heading">
                          <ul class="">
                              <li>
                                  <h2 class="">User Login</h2>
                              </li>
                          </ul>
                      </div>
-                     <div class="panel-body">
+                     <div class="card-body">
                          <div style="max-width: 600px; margin:0 auto;">
                              <?php
                                 if (isset($usrLogin)) {
@@ -41,7 +42,11 @@
                                      <label for="email">Password:</label>
                                      <input type="password" id="password" name="password" class="form-control">
                                  </div>
-                                 <button type="submit" name="login" class="btn btn-success">Login</button>
+                                 <div class="login-page-buttons">
+                                     <button type="submit" name="login" class="btn btn-success">Login
+                                     </button>
+                                     <a href="register.php" class="float-right">New Registration</a>
+                                 </div>
 
                              </form>
                          </div>

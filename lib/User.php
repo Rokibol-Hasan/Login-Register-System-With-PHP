@@ -37,6 +37,7 @@ class User
             $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Email Already Exists!!</div>";
             return $msg;
         }
+        $password   = md5($data['password']);
         $sql = "INSERT INTO tbl_user(name,username,email,password) VALUES (:name,:username,:email,:password) ";
         $query = $this->db->pdo->prepare($sql);
         $query->bindValue(':name', $name);
@@ -79,7 +80,7 @@ class User
         $email      = $data['email'];
         $password   = md5($data['password']);
         $chk_email  = $this->emailCheck($email);
-        if ($email == "" OR $password == "") {
+        if ($email == "" or $password == "") {
             $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Field Must Not Be Empty!</div>";
             return $msg;
         }
@@ -102,6 +103,106 @@ class User
             header("Location:index.php");
         } else {
             $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Data not found!!</div>";
+            return $msg;
+        }
+    }
+    public function getUserData()
+    {
+        $sql = "SELECT * FROM tbl_user ORDER BY id DESC";
+        $query = $this->db->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
+    public function getUserById($userid)
+    {
+        $sql = "SELECT * FROM tbl_user WHERE id= :id LIMIT 1";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindValue(':id', $userid);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public function updateUserData($id, $data)
+    {
+        $name       = $data['name'];
+        $username   = $data['username'];
+        $email      = $data['email'];
+
+
+        if ($name == "" or $username == "" or $email == "") {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Field Must Not Be Empty!</div>";
+            return $msg;
+        }
+
+        $sql        = "UPDATE tbl_user SET 
+        name        = :name,
+        username    = :username,
+        email       = :email
+        WHERE id    = :id
+        ";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindValue(':name', $name);
+        $query->bindValue(':username', $username);
+        $query->bindValue(':email', $email);
+        $query->bindValue(':id', $id);
+        $result = $query->execute();
+        if ($result) {
+            $msg = "<div class = 'alert alert-success'><strong> Success! </strong> User Data Updated Successfully!</div>";
+            return $msg;
+        } else {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Sorry! Something Wrong!!</div>";
+            return $msg;
+        }
+    }
+    private function checkPassword($id, $old_pass)
+    {
+        $password = md5($old_pass);
+        $sql = "SELECT password FROM tbl_user WHERE id = :id AND password = :password";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindValue(':id', $id);
+        $query->bindValue(':password', $password);
+        $query->execute();
+        if ($query->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updatePassword($id, $data)
+    {
+        $old_pass = $data['old_pass'];
+        $new_pass = $data['password'];
+        $chk_pass = $this->checkPassword($id, $old_pass);
+        if ($old_pass == "" or $new_pass == "") {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong>Field Must Not Be Empty!!</div>";
+            return $msg;
+        }
+        if ($chk_pass == false) {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong>Exist Pass!!</div>";
+            return $msg;
+        }
+
+        if (strlen($new_pass) < 6) {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong>Short Pass!!</div>";
+            return $msg;
+        }
+        $password = md5($new_pass);
+        $sql        = "UPDATE tbl_user SET 
+        password    = :password,
+        WHERE id    = :id
+        ";
+        $query = $this->db->pdo->prepare($sql);
+        $query->bindValue(':password', $password);
+        $query->bindValue(':id', $id);
+        $result = $query->execute();
+        if ($result) {
+            $msg = "<div class = 'alert alert-success'><strong> Success! </strong> Password Updated!</div>";
+            return $msg;
+        } else {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Sorry! Something Wrong!!</div>";
             return $msg;
         }
     }

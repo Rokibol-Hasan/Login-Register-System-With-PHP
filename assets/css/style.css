@@ -1,40 +1,41 @@
 .navbar {
   padding: 40px 0px;
   background-color: lightgray;
-  margin-bottom: 40px;
 }
-.userlist{
-
+.card{
+  margin:20px 0px;
+  padding: 10px;
+}
+.userlist {
 }
 .userlist ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
 }
-.panel-heading{
-    height: 60px;
+.panel-heading {
+  padding: 15px 0px;
 }
-.panel-heading ul li h2{
-    vertical-align: middle;
-}
-.panel-heading ul li span{
-    vertical-align: middle;
-}
-.footer{
+.footer {
   background-color: lightgray;
   padding: 20px 0px;
   margin-top: 40px;
 }
-.footer a{
+.footer a {
   text-decoration: none;
   color: black;
-
 }
-.footer .left-footer{
+.footer .left-footer {
   text-align: left;
 }
-.footer .right-footer{
+.footer .right-footer {
   text-align: right;
 }
-.
-
+.login-page-buttons a {
+  padding: 5px 15px 5px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}

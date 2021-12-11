@@ -17,15 +17,15 @@
          <div class="row">
              <div class="col-md-12">
 
-                 <div class="panel panel-default">
-                     <div class="panel-heading">
+                 <div class="card card-default">
+                     <div class="card-heading">
                          <ul class="">
                              <li>
                                  <h2 class="">User Registration</h2>
                              </li>
                          </ul>
                      </div>
-                     <div class="panel-body">
+                     <div class="card-body">
                          <div style="max-width: 600px; margin:0 auto;">
 
                              <?php
