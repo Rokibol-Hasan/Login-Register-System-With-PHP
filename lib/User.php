@@ -140,8 +140,7 @@ class User
         name        = :name,
         username    = :username,
         email       = :email
-        WHERE id    = :id
-        ";
+        WHERE id    = :id";
         $query = $this->db->pdo->prepare($sql);
         $query->bindValue(':name', $name);
         $query->bindValue(':username', $username);
@@ -171,11 +170,11 @@ class User
         }
     }
 
-    public function updatePassword($id, $data)
+    public function updatePassword($userid, $data)
     {
         $old_pass = $data['old_pass'];
         $new_pass = $data['password'];
-        $chk_pass = $this->checkPassword($id, $old_pass);
+        $chk_pass = $this->checkPassword($userid, $old_pass);
         if ($old_pass == "" or $new_pass == "") {
             $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong>Field Must Not Be Empty!!</div>";
             return $msg;
@@ -192,11 +191,10 @@ class User
         $password = md5($new_pass);
         $sql        = "UPDATE tbl_user SET 
         password    = :password,
-        WHERE id    = :id
-        ";
+        WHERE id    = :id ";
         $query = $this->db->pdo->prepare($sql);
         $query->bindValue(':password', $password);
-        $query->bindValue(':id', $id);
+        $query->bindValue(':id', $userid);
         $result = $query->execute();
         if ($result) {
             $msg = "<div class = 'alert alert-success'><strong> Success! </strong> Password Updated!</div>";
