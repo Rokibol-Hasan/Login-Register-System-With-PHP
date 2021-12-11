@@ -39,8 +39,8 @@ if (isset($_GET['action']) && $_GET['action'] == "logout") {
                         $id = Session::get("id");
                         $userlogin = Session::get("login");
                         if ($userlogin == true) { ?>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="?action=index.php">Home</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php?id=<?php echo $id ?>">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="profile.php?id=<?php echo $id ?>">Profile</a>

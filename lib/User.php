@@ -33,6 +33,10 @@ class User
             $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Email Address is not valid!!</div>";
             return $msg;
         }
+        if (strlen($password) < 6) {
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong>Short Pass!!</div>";
+            return $msg;
+        }
         if ($chk_email == true) {
             $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Email Already Exists!!</div>";
             return $msg;
@@ -89,7 +93,7 @@ class User
             return $msg;
         }
         if ($chk_email == false) {
-            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Email Already Exists!!</div>";
+            $msg = "<div class = 'alert alert-danger'><strong> ERROR! </strong> Email is not found!!</div>";
             return $msg;
         }
         $result = $this->getLoginUser($email, $password);

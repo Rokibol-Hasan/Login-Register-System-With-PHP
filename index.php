@@ -30,9 +30,9 @@
                      </div>
                      <div class="card-body">
                          <table class="table table-striped">
-                             <th width="20%">Serial</th>
-                             <th width="20%">Name</th>
-                             <th width="20%">Username</th>
+                             <th width="10%">Serial</th>
+                             <th width="35%">Name</th>
+                             <th width="15%">Username</th>
                              <th width="20%">Email</th>
                              <th width="20%">Action</th>
                              <?php

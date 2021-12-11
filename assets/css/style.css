@@ -1,10 +1,27 @@
 .navbar {
   padding: 40px 0px;
-  background-color: lightgray;
+  background-color: rgb(119, 18, 122);
 }
-.card{
-  margin:20px 0px;
-  padding: 10px;
+.navbar-light .navbar-brand {
+    color: rgb(255, 255, 255);
+}
+.navbar-light .navbar-nav .nav-link{
+  color: white;
+}
+.navbar-light .navbar-nav .active > .nav-link{
+  color: white;
+}
+.btn-success {
+    color: #fff;
+    background-color: #77127A;
+    border: none;
+}
+.card {
+    margin: 20px 0px;
+    padding: 10px;
+    border: 0px solid gray;
+    border-radius: 20px;
+    box-shadow: 0px 0px 9px 0px #888;
 }
 .userlist {
 }
@@ -17,13 +34,13 @@
   padding: 15px 0px;
 }
 .footer {
-  background-color: lightgray;
+  background-color: #77127A;
   padding: 20px 0px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .footer a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .footer .left-footer {
   text-align: left;
@@ -36,6 +53,6 @@
   border-radius: 5px;
   text-decoration: none;
   color: #fff;
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: #77127A;
+  border: none;
 }
